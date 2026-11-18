@@ -1,101 +1,201 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LKPD Interaktif - JS String & Number</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LKPD JavaScript - Jay vien Samuel</title>
+<style>
+  *{box-sizing:border-box} body{font-family:Arial,sans-serif;background:#f1f5f9;margin:0;color:#1e293b}
+  header{background:#1e40af;color:#fff;padding:24px 16px;text-align:center}
+  header h1{margin:0;font-size:26px} header p{margin:6px 0}
+  .wrap{max-width:900px;margin:0 auto;padding:16px}
+  .card{background:#fff;border-radius:14px;padding:20px;margin-bottom:20px;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+  .card img{width:100%;border-radius:10px;margin:12px 0}
+  h2{color:#1e40af;margin-top:0} h3{color:#0f172a}
+  pre{background:#0f172a;color:#a5f3fc;padding:14px;border-radius:10px;overflow:auto}
+  .jawab{background:#ecfdf5;border-left:5px solid #10b981;padding:12px;border-radius:8px}
+  .jawab b{color:#047857}
+  table{width:100%;border-collapse:collapse;margin:10px 0} td,th{border:1px solid #cbd5e1;padding:8px;text-align:left}
+  th{background:#dbeafe}
+  button{background:#2563eb;color:#fff;border:0;padding:12px 18px;border-radius:10px;font-size:16px;cursor:pointer;width:100%;margin-top:10px}
+  button:hover{background:#1d4ed8}
+  input{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:10px;margin:6px 0;font-size:16px}
+  .hasil{background:#fef3c7;padding:12px;border-radius:10px;margin-top:10px;font-weight:bold}
+  .badge{display:inline-block;background:#f59e0b;color:#fff;padding:4px 10px;border-radius:20px;font-size:13px}
+  footer{text-align:center;padding:20px;color:#64748b}
+</style>
 </head>
 <body>
-<div class="bg-blob blob1"></div>
-<div class="bg-blob blob2"></div>
 
-<div class="container">
-    <header class="glass">
-        <div class="badge-top">✨ SMKN 1 GARUT - X PPLG - INTERAKTIF</div>
-        <h1>JavaScript: String, Number & Konversi Data</h1>
-        <p>Belajar bedain "10" dan 10 sambil ngoding kasir!</p>
-        <div class="progress-wrap">
-            <div class="progress-bar"><div id="progress"></div></div>
-            <span id="progressText">0% Selesai</span>
-        </div>
-        <div class="identitas-grid">
-            <div class="input-group">👤 <input type="text" id="nama" placeholder="Nama Lengkap"></div>
-            <div class="input-group">🏫 <input type="text" id="kelas" placeholder="Kelas / No. Absen"></div>
-            <div class="input-group">📅 <input type="date" id="tanggal"></div>
-        </div>
-    </header>
+<header>
+  <h1>LKPD JavaScript — String, Number & Konversi Data</h1>
+  <p><b>Nama:</b> Jay vien Samuel &nbsp;|&nbsp; <b>Kelas:</b> X-PPLG-1 &nbsp;|&nbsp; <b>SMKN 1 Garut</b></p>
+  <p>Mapel: Dasar-Dasar Pengembangan Perangkat Lunak dan Gim | 2 x 45 Menit</p>
+</header>
 
-    <!-- Aktivitas 1 -->
-    <section class="card">
-        <div class="card-head"><span class="icon">🧪</span><h3>Aktivitas 1 - Eksperimen 10 + 20</h3><span class="status">Wajib</span></div>
-        <div class="code-block"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><code>let a = "10"; let b = "20"; console.log(a + b);</code></div>
-        <div class="grid2">
-            <label>Output? <input type="text" id="c1_output" value="1020"></label>
-            <label>Tipe data? <input type="text" id="c1_tipe" value="Keduanya String"></label>
-        </div>
-        <label>Mengapa? <textarea id="c1_mengapa">Karena pakai tanda petik " ", jadi + artinya sambung teks, bukan tambah angka.</textarea></label>
-        <div class="result-box">🔴 Live Result: <b id="live1"></b></div>
-    </section>
+<div class="wrap">
 
-    <!-- Aktivitas 2 -->
-    <section class="card">
-        <div class="card-head"><span class="icon">🔍</span><h3>Aktivitas 2 - Menemukan Tipe Data</h3><span class="status done">typeof</span></div>
-        <div class="code-block"><code>typeof "Asep" → string | typeof 16 → number</code></div>
-        <table class="modern-table">
-            <tr><th>Variabel</th><th>Prediksi</th><th>Asli</th><th>Kesimpulan</th></tr>
-            <tr><td>nama</td><td><input id="d1_pred" value="string"></td><td><span id="live2a" class="pill"></span></td><td><input id="d1_kes" value="Pakai petik = String"></td></tr>
-            <tr><td>umur</td><td><input id="d2_pred" value="number"></td><td><span id="live2b" class="pill"></span></td><td><input id="d2_kes" value="Tanpa petik = Number"></td></tr>
-        </table>
-        <label>Temuanmu <textarea id="d_temuan">String itu teks pakai " ", Number itu angka murni. Cek pakai typeof.</textarea></label>
-    </section>
-
-    <!-- Aktivitas 3 & 4 -->
-    <section class="card highlight">
-        <div class="card-head"><span class="icon">🛠️</span><h3>Aktivitas 3 - Fix Jadi 30</h3></div>
-        <div class="code-line">let hasil = <input id="e_kode" value="Number(a) + Number(b)" class="code-input">;</div>
-        <div class="result-box green">✅ Hasil: <b id="live3"></b></div>
-    </section>
-
-    <section class="card highlight2">
-        <div class="card-head"><span class="icon">🛒</span><h3>Aktivitas 4 - Kasir Sederhana</h3><span class="status">Project</span></div>
-        <div class="code-line">let total = <input id="f_kode" value="harga * jumlah" class="code-input">;</div>
-        <div class="kasir-flex">
-            <input type="number" id="harga" value="15000"><span>x</span><input type="number" id="jumlah" value="2">
-            <button class="btn-gradient" onclick="hitungKasir()">Hitung</button>
-        </div>
-        <div class="result-box green">💰 Total: <b id="f_program"></b></div>
-    </section>
-
-    <section class="card">
-        <div class="card-head"><span class="icon">🏆</span><h3>Tantangan - Hitung Nilai</h3></div>
-        <div class="kasir-flex">
-            <input type="number" id="tugas" value="80" placeholder="Tugas"><input type="number" id="uts" value="85" placeholder="UTS"><input type="number" id="uas" value="90" placeholder="UAS">
-            <button class="btn-gradient purple" onclick="hitungNilai()">Rata-rata</button>
-        </div>
-        <div class="result-box purple">📊 <b id="hasilNilai"></b></div>
-        <textarea id="g_algo" rows="3">1. Input tugas, UTS, UAS via prompt() -> String
-2. Ubah jadi Number()
-3. (tugas+UTS+UAS)/3</textarea>
-    </section>
-
-    <!-- Think Pair Share -->
-    <section class="card">
-        <div class="card-head"><span class="icon">💡</span><h3>Think Pair Share</h3></div>
-        <label>Kenapa prompt() harus dikonversi?<textarea id="h1">Karena prompt() selalu String, harus Number() biar bisa dihitung.</textarea></label>
-        <label>Bedanya "10" vs 10?<textarea id="h2">"10" = String (teks), 10 = Number (angka).</textarea></label>
-        <label>Jika lupa Number()? <textarea id="h3">Jadi 1020, bukan 30. Hasil salah.</textarea></label>
-    </section>
-
-    <div class="action-bar glass">
-        <button id="btnSimpan" class="btn-big">💾 Simpan Permanen</button>
-        <button onclick="window.print()" class="btn-outline">🖨️ Cetak PDF</button>
-        <button onclick="hapusData()" class="btn-danger">Reset</button>
-        <p id="statusSimpan"></p>
-    </div>
+<!-- TUJUAN -->
+<div class="card">
+  <h2>A. Tujuan Pembelajaran</h2>
+  <p>Setelah menyelesaikan LKPD ini, saya mampu: (1) membedakan String dan Number, (2) menjelaskan bahwa <b>prompt()</b> menghasilkan String, (3) menggunakan <b>Number()</b> dan <b>String()</b>, (4) menganalisis kesalahan akibat tipe data, dan (5) membuat program input dan perhitungan sederhana.</p>
 </div>
-<script src="script.js"></script>
+
+<!-- AKTIVITAS 1 -->
+<div class="card">
+  <h2>C. Aktivitas 1 — Eksperimen 10 + 20</h2>
+  <img src="foto-aktivitas1.webp" alt="Aktivitas 1">
+  <pre>let a = "10";
+let b = "20";
+console.log(a + b);</pre>
+  <div class="jawab">
+    <p><b>Apa output program?</b><br>Outputnya adalah <b>"1020"</b></p>
+    <p><b>Mengapa hasil tersebut terjadi?</b><br>Karena a dan b bertipe String (ada tanda petik). Di JavaScript, tanda <b>+</b> untuk String artinya <b>penggabungan / concatenation</b>, bukan penjumlahan. Jadi "10" + "20" = "1020".</p>
+    <p><b>Apakah a dan b bertipe Number?</b><br>Tidak. Keduanya bertipe <b>String</b>, bukan Number.</p>
+    <p><b>Uji sekarang. Apakah prediksimu benar? Jelaskan.</b><br>Ya, benar. Setelah dijalankan hasilnya 1020, bukan 30. Ini membuktikan kalau String + String akan digabung, bukan ditambah.</p>
+  </div>
+  <button onclick="alert('Hasil: ' + ('10' + '20'))">▶ Coba Jalankan Aktivitas 1</button>
+</div>
+
+<!-- AKTIVITAS 2 -->
+<div class="card">
+  <h2>D. Aktivitas 2 — Menemukan Tipe Data</h2>
+  <img src="foto-aktivitas2.webp" alt="Aktivitas 2">
+  <pre>let nama = "Asep";
+let umur = 16;
+console.log(typeof nama);
+console.log(typeof umur);</pre>
+  <table>
+    <tr><th>Variabel</th><th>Prediksi</th><th>Hasil typeof</th><th>Kesimpulan</th></tr>
+    <tr><td>nama</td><td>string</td><td>string</td><td>Teks, pakai tanda petik</td></tr>
+    <tr><td>umur</td><td>number</td><td>number</td><td>Angka, tanpa tanda petik, bisa dihitung</td></tr>
+  </table>
+  <div class="jawab">
+    <b>Temuan: Apa perbedaan String dan Number?</b><br>
+    String adalah teks / karakter yang ditulis di dalam tanda petik, contoh: "Asep", "10". Tidak bisa dihitung, kalau ditambah akan digabung. Number adalah angka tanpa tanda petik, contoh: 16, 10, 20. Bisa dihitung dengan operasi matematika (+, -, *, /).
+  </div>
+  <button onclick="alert('typeof nama = ' + typeof 'Asep' + '\ntypeof umur = ' + typeof 16)">▶ Coba Cek typeof</button>
+</div>
+
+<!-- AKTIVITAS 3 -->
+<div class="card">
+  <h2>E. Aktivitas 3 — Konversi String Menjadi Number</h2>
+  <img src="foto-aktivitas3.webp" alt="Aktivitas 3">
+  <p>Perbaiki program agar menghasilkan 30. Gunakan <b>Number()</b>:</p>
+  <pre>let a = "10";
+let b = "20";
+let hasil = Number(a) + Number(b);
+console.log(hasil); // 30</pre>
+  <div class="jawab"><b>Catat hasil program: 30</b><br>Karena "10" diubah jadi angka 10, dan "20" diubah jadi angka 20. Jadi 10 + 20 = 30.</div>
+  <button onclick="alert('Hasil: ' + (Number('10') + Number('20')))">▶ Coba Jalankan Aktivitas 3</button>
+</div>
+
+<!-- AKTIVITAS 4 -->
+<div class="card">
+  <h2>F. Aktivitas 4 — Program Kasir Sederhana</h2>
+  <img src="foto-aktivitas4.webp" alt="Aktivitas 4">
+  <pre>let harga = Number(prompt("Masukkan harga: "));
+let jumlah = Number(prompt("Masukkan jumlah: "));
+let total = harga * jumlah;
+console.log("Total belanja = " + total);</pre>
+  <div class="jawab">
+    <b>Jawaban isian:</b> <code>let total = harga * jumlah;</code><br>
+    <b>Input Uji Contoh:</b> Harga Rp 5.000, Jumlah 3, Total seharusnya Rp 15.000, Total program Rp 15.000 — <b>Sama / Benar</b><br>
+    Tanpa Number(), prompt() akan menghasilkan String, jadi perkalian bisa salah atau penjumlahan jadi penggabungan.
+  </div>
+  <h3>🛒 Coba Langsung di Sini (pakai prompt):</h3>
+  <button onclick="kasir()">▶ Jalankan Program Kasir (prompt)</button>
+  <div id="hasilKasir" class="hasil" style="display:none"></div>
+  <h3>Atau isi manual:</h3>
+  <input id="harga" type="number" placeholder="Masukkan harga, contoh: 5000">
+  <input id="jumlah" type="number" placeholder="Masukkan jumlah, contoh: 3">
+  <button onclick="kasirManual()">Hitung Total</button>
+  <div id="hasilKasir2" class="hasil" style="display:none"></div>
+</div>
+
+<!-- TANTANGAN -->
+<div class="card">
+  <h2>G. Tantangan — Program Hitung Nilai <span class="badge">TANTANGAN</span></h2>
+  <img src="foto-tantangan.webp" alt="Tantangan">
+  <pre>let tugas = Number(prompt("Masukkan nilai tugas: "));
+let uts = Number(prompt("Masukkan nilai UTS: "));
+let uas = Number(prompt("Masukkan nilai UAS: "));
+let rataRata = (tugas + uts + uas) / 3;
+console.log("Rata-rata = " + rataRata);</pre>
+  <div class="jawab">
+    <b>Algoritma saya:</b><br>
+    1. Minta input nilai tugas lewat prompt(), lalu ubah ke Number.<br>
+    2. Minta input nilai UTS lewat prompt(), lalu ubah ke Number.<br>
+    3. Minta input nilai UAS lewat prompt(), lalu ubah ke Number.<br>
+    4. Hitung rata-rata dengan rumus (tugas + UTS + UAS) / 3, lalu tampilkan hasilnya.<br><br>
+    <b>Contoh:</b> Tugas 80, UTS 90, UAS 70 → (80 + 90 + 70) / 3 = 240 / 3 = <b>80</b>
+  </div>
+  <h3>🎓 Coba Langsung di Sini:</h3>
+  <button onclick="hitungNilai()">▶ Jalankan Hitung Nilai (prompt)</button>
+  <div id="hasilNilai" class="hasil" style="display:none"></div>
+  <h3>Atau isi manual:</h3>
+  <input id="tugas" type="number" placeholder="Nilai Tugas, contoh: 80">
+  <input id="uts" type="number" placeholder="Nilai UTS, contoh: 90">
+  <input id="uas" type="number" placeholder="Nilai UAS, contoh: 70">
+  <button onclick="nilaiManual()">Hitung Rata-Rata</button>
+  <div id="hasilNilai2" class="hasil" style="display:none"></div>
+
+</div>
+
+<!-- THINK PAIR SHARE -->
+<div class="card">
+  <h2>H. Think — Pair — Share</h2>
+  <div class="jawab">
+    <p><b>Mengapa prompt() perlu dikonversi jika hasilnya ingin dihitung?</b><br>Karena prompt() selalu menghasilkan String, meskipun yang diketik angka. Kalau tidak dikonversi, hasil perhitungan jadi salah, misal "10" + "20" jadi "1020" bukan 30.</p>
+    <p><b>Apa perbedaan "10" dengan 10?</b><br>"10" adalah String (teks, pakai tanda petik, tidak bisa dihitung). 10 adalah Number (angka, tanpa tanda petik, bisa dihitung).</p>
+    <p><b>Apa yang terjadi jika lupa Number()?</b><br>Perhitungan jadi salah. Penjumlahan berubah jadi penggabungan teks, dan total bisa jadi tidak sesuai.</p>
+    <p><b>Pair:</b> Setelah dibandingkan dengan teman, jawabannya sama intinya, hanya beda cara menjelaskan. Bisa berbeda karena setiap orang punya contoh dan bahasa yang berbeda.</p>
+    <p><b>Share:</b> Satu temuan penting: <b>Selalu gunakan Number() setelah prompt() kalau mau menghitung.</b></p>
+  </div>
+</div>
+
+<!-- REFLEKSI -->
+<div class="card">
+  <h2>I. Refleksi 3-2-1</h2>
+  <div class="jawab">
+    <b>3 hal yang saya pahami:</b><br>1. String adalah teks pakai petik, Number adalah angka.<br>2. prompt() menghasilkan String, jadi harus dikonversi pakai Number().<br>3. Number("10") + Number("20") = 30, bukan 1020.<br><br>
+    <b>2 hal yang masih membingungkan:</b><br>1. Perbedaan Number() dengan parseInt() / parseFloat().<br>2. Kalau inputnya huruf, kenapa hasilnya NaN.<br><br>
+    <b>1 hal yang ingin saya coba:</b><br>Membuat program kasir yang lebih lengkap dengan diskon dan kembalian.
+  </div>
+</div>
+
+<!-- PENILAIAN DIRI -->
+<div class="card">
+  <h2>J. Penilaian Diri</h2>
+  <table>
+    <tr><th>Pernyataan</th><th>Ya</th><th>Belum</th></tr>
+    <tr><td>Saya dapat membedakan String dan Number.</td><td>✅</td><td></td></tr>
+    <tr><td>Saya memahami prompt() menghasilkan String.</td><td>✅</td><td></td></tr>
+    <tr><td>Saya dapat menggunakan Number().</td><td>✅</td><td></td></tr>
+    <tr><td>Saya dapat menggunakan String().</td><td>✅</td><td></td></tr>
+    <tr><td>Saya dapat menemukan kesalahan tipe data.</td><td>✅</td><td></td></tr>
+    <tr><td>Saya dapat membuat program input dan hitung sederhana.</td><td>✅</td><td></td></tr>
+  </table>
+  <p><b>Contoh String():</b> <code>String(123)</code> → "123" (angka jadi teks). Berguna kalau mau menggabungkan angka dengan teks.</p>
+</div>
+
+</div>
+
+<footer> Dibuat oleh Jayvien Samuel — X-PPLG-1 — SMKN 1 Garut </footer>
+
+<script src="test.js"></script>
+
+<div>
+    <table>
+        <h2>Screenhots hasil output</h2>
+
+        <img src="images/aktivitas 4.png" alt="aktiv 4">
+        <img src="images/aktivitas 4.1.png" alt="aktiv 4">
+        <img src="images/1.png" alt="aktiv ttg">
+        <img src="images/2.png" alt="aktiv ttg">
+        <img src="images/3.png" alt="ttg">
+        <img src="images/hasil output.png" alt="hasil">
+    </table>
+</div>
 </body>
 </html>
