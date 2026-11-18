@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LKPD Interaktif - JS String & Number</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-blob blob1"></div>
+<div class="bg-blob blob2"></div>
+
+<div class="container">
+    <header class="glass">
+        <div class="badge-top">✨ SMKN 1 GARUT - X PPLG - INTERAKTIF</div>
+        <h1>JavaScript: String, Number & Konversi Data</h1>
+        <p>Belajar bedain "10" dan 10 sambil ngoding kasir!</p>
+        <div class="progress-wrap">
+            <div class="progress-bar"><div id="progress"></div></div>
+            <span id="progressText">0% Selesai</span>
+        </div>
+        <div class="identitas-grid">
+            <div class="input-group">👤 <input type="text" id="nama" placeholder="Nama Lengkap"></div>
+            <div class="input-group">🏫 <input type="text" id="kelas" placeholder="Kelas / No. Absen"></div>
+            <div class="input-group">📅 <input type="date" id="tanggal"></div>
+        </div>
+    </header>
+
+    <!-- Aktivitas 1 -->
+    <section class="card">
+        <div class="card-head"><span class="icon">🧪</span><h3>Aktivitas 1 - Eksperimen 10 + 20</h3><span class="status">Wajib</span></div>
+        <div class="code-block"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><code>let a = "10"; let b = "20"; console.log(a + b);</code></div>
+        <div class="grid2">
+            <label>Output? <input type="text" id="c1_output" value="1020"></label>
+            <label>Tipe data? <input type="text" id="c1_tipe" value="Keduanya String"></label>
+        </div>
+        <label>Mengapa? <textarea id="c1_mengapa">Karena pakai tanda petik " ", jadi + artinya sambung teks, bukan tambah angka.</textarea></label>
+        <div class="result-box">🔴 Live Result: <b id="live1"></b></div>
+    </section>
+
+    <!-- Aktivitas 2 -->
+    <section class="card">
+        <div class="card-head"><span class="icon">🔍</span><h3>Aktivitas 2 - Menemukan Tipe Data</h3><span class="status done">typeof</span></div>
+        <div class="code-block"><code>typeof "Asep" → string | typeof 16 → number</code></div>
+        <table class="modern-table">
+            <tr><th>Variabel</th><th>Prediksi</th><th>Asli</th><th>Kesimpulan</th></tr>
+            <tr><td>nama</td><td><input id="d1_pred" value="string"></td><td><span id="live2a" class="pill"></span></td><td><input id="d1_kes" value="Pakai petik = String"></td></tr>
+            <tr><td>umur</td><td><input id="d2_pred" value="number"></td><td><span id="live2b" class="pill"></span></td><td><input id="d2_kes" value="Tanpa petik = Number"></td></tr>
+        </table>
+        <label>Temuanmu <textarea id="d_temuan">String itu teks pakai " ", Number itu angka murni. Cek pakai typeof.</textarea></label>
+    </section>
+
+    <!-- Aktivitas 3 & 4 -->
+    <section class="card highlight">
+        <div class="card-head"><span class="icon">🛠️</span><h3>Aktivitas 3 - Fix Jadi 30</h3></div>
+        <div class="code-line">let hasil = <input id="e_kode" value="Number(a) + Number(b)" class="code-input">;</div>
+        <div class="result-box green">✅ Hasil: <b id="live3"></b></div>
+    </section>
+
+    <section class="card highlight2">
+        <div class="card-head"><span class="icon">🛒</span><h3>Aktivitas 4 - Kasir Sederhana</h3><span class="status">Project</span></div>
+        <div class="code-line">let total = <input id="f_kode" value="harga * jumlah" class="code-input">;</div>
+        <div class="kasir-flex">
+            <input type="number" id="harga" value="15000"><span>x</span><input type="number" id="jumlah" value="2">
+            <button class="btn-gradient" onclick="hitungKasir()">Hitung</button>
+        </div>
+        <div class="result-box green">💰 Total: <b id="f_program"></b></div>
+    </section>
+
+    <section class="card">
+        <div class="card-head"><span class="icon">🏆</span><h3>Tantangan - Hitung Nilai</h3></div>
+        <div class="kasir-flex">
+            <input type="number" id="tugas" value="80" placeholder="Tugas"><input type="number" id="uts" value="85" placeholder="UTS"><input type="number" id="uas" value="90" placeholder="UAS">
+            <button class="btn-gradient purple" onclick="hitungNilai()">Rata-rata</button>
+        </div>
+        <div class="result-box purple">📊 <b id="hasilNilai"></b></div>
+        <textarea id="g_algo" rows="3">1. Input tugas, UTS, UAS via prompt() -> String
+2. Ubah jadi Number()
+3. (tugas+UTS+UAS)/3</textarea>
+    </section>
+
+    <!-- Think Pair Share -->
+    <section class="card">
+        <div class="card-head"><span class="icon">💡</span><h3>Think Pair Share</h3></div>
+        <label>Kenapa prompt() harus dikonversi?<textarea id="h1">Karena prompt() selalu String, harus Number() biar bisa dihitung.</textarea></label>
+        <label>Bedanya "10" vs 10?<textarea id="h2">"10" = String (teks), 10 = Number (angka).</textarea></label>
+        <label>Jika lupa Number()? <textarea id="h3">Jadi 1020, bukan 30. Hasil salah.</textarea></label>
+    </section>
+
+    <div class="action-bar glass">
+        <button id="btnSimpan" class="btn-big">💾 Simpan Permanen</button>
+        <button onclick="window.print()" class="btn-outline">🖨️ Cetak PDF</button>
+        <button onclick="hapusData()" class="btn-danger">Reset</button>
+        <p id="statusSimpan"></p>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
